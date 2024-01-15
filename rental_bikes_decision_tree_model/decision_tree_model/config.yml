@@ -1,0 +1,63 @@
+# package overview
+package_name: decision_tree_model
+
+# Data Files
+data_file: hour.csv
+
+# Variables
+# The variable we predict 
+target: cnt
+
+pipeline_name: decision_tree_model
+pipeline_save_file: decision_tree_model_output_v
+
+# data features
+features:
+  - cnt_lag1 #lag var
+  - cnt_lag2 #lag var
+  - season
+  - yr
+  - mnth
+  - hr
+  - holiday
+  - weekday
+  - workingday
+  - weathersit
+  - temp
+  - atemp
+  - hum
+  - windspeed
+  - casual
+  - registered
+
+# setting train/test split
+test_size: 0.1
+
+# setting the seed
+random_state: 0
+
+# decision tree regressor params
+max_depth: 10
+max_leaf_nodes: 60
+min_samples_split: 5
+
+# numerical variable to transform with yeo-johnson transformation
+numerical_vars_yj:
+  - hum
+  - windspeed
+
+# categorical variables to encode
+categorical_vars:
+  - season
+  - yr
+  - mnth
+  - hr
+  - holiday
+  - weekday
+  - workingday
+  - weathersit
+
+# highly correlated features with target 
+features_to_drop:
+  - casual
+  - registered
