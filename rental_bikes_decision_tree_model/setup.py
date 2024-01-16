@@ -6,7 +6,7 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 # Package meta-data.
-NAME = 'decision-tree-model'
+NAME = 'rb-decision-tree-model'
 DESCRIPTION = "Example decision tree regressor model package to train on bike rental dataset."
 EMAIL = "kotobiamir@gmail.com"
 AUTHOR = "Amirktb"
