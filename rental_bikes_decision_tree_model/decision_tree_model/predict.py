@@ -1,4 +1,4 @@
-import typing as t
+from typing import Union, Dict, Any
 
 import numpy as np
 import pandas as pd
@@ -14,11 +14,10 @@ _rental_bikes_pipe = load_pipeline(file_name=pipeline_file_name)
 
 def make_predictions(
         *,
-        input_data: t.Union[pd.DataFrame, dict],
-        ) -> dict:
+        input_data: Union[str, None, Dict[Any, Any]],
+        )
     """Make predictions using the saved model pipeline."""
 
-    print(type(input_data))
     data = pd.DataFrame(input_data)
     validated_data, errors = validate_inputs(input_data=data)
     results = {"predictions": None, "version": _version, "errors": errors}
@@ -32,5 +31,5 @@ def make_predictions(
             "version": _version,
             "errors": errors,
         }
-    print(type(results))
+
     return results
