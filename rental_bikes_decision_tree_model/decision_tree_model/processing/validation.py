@@ -12,7 +12,7 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
 
     vars_with_na = [
         var for var in config.model_config.features
-        if  validated_data[var].isnull().sum() > 0
+        if validated_data[var].isnull().sum() > 0
     ]
     validated_data.dropna(subset=vars_with_na, inplace=True)
     return validated_data
@@ -25,8 +25,8 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
 
     # drop unnecessary columns
     input_data.drop(['instant', 'dteday'],
-                         axis=1,
-                         inplace=True)
+                    axis=1,
+                    inplace=True)
     # convert categorical columns to dtype category
     for var in config.model_config.categorical_vars:
         input_data[f"{var}"] = input_data[f"{var}"].astype('category')

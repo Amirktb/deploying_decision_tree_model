@@ -13,7 +13,7 @@ _rental_bikes_pipe = load_pipeline(file_name=pipeline_file_name)
 
 
 def make_predictions(
-        *, 
+        *,
         input_data: Union[pd.DataFrame, dict],
 ) -> dict:
     """
@@ -29,8 +29,8 @@ def make_predictions(
             X=validated_data[config.model_config.features]
         )
         results = {
-            "predictions": [np.exp(pred) for pred in predictions], 
-            "version": _version, 
+            "predictions": [np.exp(pred) for pred in predictions],
+            "version": _version,
             "errors": errors
         }
 

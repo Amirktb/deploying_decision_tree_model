@@ -14,7 +14,7 @@ def load_dataset(*, filename: str) -> pd.DataFrame:
     # convert categorical columns to dtype category
     for var in config.model_config.categorical_vars:
         rental_bikes_df[f"{var}"] = rental_bikes_df[f"{var}"].astype('category')
-    
+   
     # add lag variables to the data
     rental_bikes_df['cnt_lag1'] = rental_bikes_df['cnt'].shift(-1)
     rental_bikes_df['cnt_lag2'] = rental_bikes_df['cnt'].shift(-2)
@@ -25,8 +25,8 @@ def load_dataset(*, filename: str) -> pd.DataFrame:
 def save_pipeline(*, pipeline_to_save: Pipeline) -> None:
     """
     Save the pipeline.
-    It saves  the versioned model and overwrites any previous 
-    saved models. Ensures that when the model is published, only 
+    It saves  the versioned model and overwrites any previous
+    saved models. Ensures that when the model is published, only
     one model is saved and we know how the model was built.
     """
 
@@ -47,8 +47,8 @@ def load_pipeline(*, file_name: str) -> Pipeline:
 def remove_old_pipeline(*, files_to_keep: List[str]) -> None:
     """
     Removes old pipelines.
-    This ensures that we have one-to-one mapping between the 
-    package version and version of the model, used by other 
+    This ensures that we have one-to-one mapping between the
+    package version and version of the model, used by other
     applications.
     """
 

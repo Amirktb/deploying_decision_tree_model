@@ -13,40 +13,40 @@ rental_bikes_pipe = Pipeline(
         # ==== VARIABLE TRANSFORMATION =====
         # yeo johnson transformation
         (
-            'yeojohnson', 
+            'yeojohnson',
             YeoJohnsonTransformer(
                 variables=config.model_config.numerical_vars_yj
             ),
         ),
         # ==== CATEGORICAL ENCODING =====
         (
-            'onehot_encoder', 
+            'onehot_encoder',
             OneHotEncoder(
                 variables=config.model_config.categorical_vars
                 ),
         ),
         # ==== DROP CORRELATED FEATURES =====
         (
-        'drop_features', 
-        DropFeatures(
-            features_to_drop=config.model_config.features_to_drop
-            ),
+            'drop_features',
+            DropFeatures(
+                features_to_drop=config.model_config.features_to_drop
+                ),
         ),
         (
-            'drop_correlated_features', 
+            'drop_correlated_features',
             DropCorrelatedFeatures(
-                method='pearson', 
+                method='pearson',
                 threshold=0.8
                 ),
         ),
         # ==== MINMAX SCALER =====
         (
-            'scaler', 
+            'scaler',
             MinMaxScaler()
         ),
         # ==== DECISION TREE REGRESSOR =====
         (
-            'DecisionTreeRegressor', 
+            'DecisionTreeRegressor',
             DecisionTreeRegressor(
                 max_depth=config.model_config.max_depth,
                 max_leaf_nodes=config.model_config.max_leaf_nodes,

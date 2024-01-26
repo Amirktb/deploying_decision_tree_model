@@ -15,12 +15,12 @@ def run_training() -> None:
 
     # divide train and test
     X_train, X_test, y_train, y_test = train_test_split(
-    data[config.model_config.features],
-    data[config.model_config.target],
-    test_size=config.model_config.test_size,
-    # random seed for reproducibility 
-    random_state=config.model_config.random_state
-    )
+        data[config.model_config.features],
+        data[config.model_config.target],
+        test_size=config.model_config.test_size,
+        # random seed for reproducibility
+        random_state=config.model_config.random_state
+        )
     y_train = np.log(y_train)
 
     # fitting the model with pipeline
@@ -32,4 +32,3 @@ def run_training() -> None:
 
 if __name__ == "__main__":
     run_training()
-    
