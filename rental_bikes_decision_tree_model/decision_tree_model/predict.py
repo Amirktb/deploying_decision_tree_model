@@ -15,7 +15,7 @@ _rental_bikes_pipe = load_pipeline(file_name=pipeline_file_name)
 def make_predictions(
         *,
         input_data: Union[str, None, Dict[Any, Any]],
-        )
+        ):
     """Make predictions using the saved model pipeline."""
 
     data = pd.DataFrame(input_data)
