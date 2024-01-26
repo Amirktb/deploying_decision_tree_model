@@ -15,16 +15,15 @@ _rental_bikes_pipe = load_pipeline(file_name=pipeline_file_name)
 def make_predictions(
         *,
         input_data: Union[pd.DataFrame, dict],
-) -> dict:
-    """
-    Make predictions using the saved model pipeline.
-    """
+        ) -> dict:
+     """Make predictions using the saved model pipeline."""
 
-    data = pd.DataFrame(input_data)
-    validated_data, errors = validate_inputs(input_data=data)
-    results = {"predictions": None, "version": _version, "errors": errors}
+     print(type(input_data))
+     data = pd.DataFrame(input_data)
+     validated_data, errors = validate_inputs(input_data=data)
+     results = {"predictions": None, "version": _version, "errors": errors}
 
-    if not errors:
+     if not errors:
         predictions = _rental_bikes_pipe.predict(
             X=validated_data[config.model_config.features]
         )
@@ -33,5 +32,5 @@ def make_predictions(
             "version": _version,
             "errors": errors,
         }
-
-    return results
+     print(type(results))
+     return results
