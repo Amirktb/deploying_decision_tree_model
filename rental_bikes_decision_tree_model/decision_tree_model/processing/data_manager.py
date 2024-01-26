@@ -14,7 +14,7 @@ def load_dataset(*, filename: str) -> pd.DataFrame:
     # convert categorical columns to dtype category
     for var in config.model_config.categorical_vars:
         rental_bikes_df[f"{var}"] = rental_bikes_df[f"{var}"].astype('category')
-   
+
     # add lag variables to the data
     rental_bikes_df['cnt_lag1'] = rental_bikes_df['cnt'].shift(-1)
     rental_bikes_df['cnt_lag2'] = rental_bikes_df['cnt'].shift(-2)

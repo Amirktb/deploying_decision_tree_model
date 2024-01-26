@@ -4,6 +4,7 @@ import numpy as np
 
 from decision_tree_model.predict import make_predictions
 
+
 def test_make_prediction(input_data):
     # Given
     expected_first_prediction_value = 50.09
