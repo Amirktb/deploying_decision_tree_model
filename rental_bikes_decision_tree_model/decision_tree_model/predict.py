@@ -1,4 +1,4 @@
-from typing import Union
+import typing as t
 
 import numpy as np
 import pandas as pd
@@ -14,7 +14,7 @@ _rental_bikes_pipe = load_pipeline(file_name=pipeline_file_name)
 
 def make_predictions(
         *,
-        input_data: Union[pd.DataFrame, dict],
+        input_data: t.Union[pd.DataFrame, dict],
         ) -> dict:
     """Make predictions using the saved model pipeline."""
 
