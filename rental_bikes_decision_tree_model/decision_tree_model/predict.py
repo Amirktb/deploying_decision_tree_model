@@ -31,5 +31,6 @@ def make_predictions(
             "version": _version,
             "errors": errors,
         }
+    print(type(results[0]))
 
     return results
