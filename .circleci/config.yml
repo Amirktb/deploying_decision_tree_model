@@ -72,10 +72,10 @@ workflows:
   version: 2
   deploy_pipeline:
     jobs:
-      - test_app
+      - test_and_upload_decision_tree_model
       - deploy_app_to_railway:
           requires:
-            - test_app
+            - test_and_upload_decision_tree_model
           filters:
             branches:
               only:
