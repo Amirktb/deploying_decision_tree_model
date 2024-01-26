@@ -2,7 +2,7 @@ import logging
 
 from decision_tree_model.config.core import PACKAGE_ROOT, config
 
-logging.getLogger(config.app_config.package_name).addHandler(logging.NullHandler)
+logging.getLogger(config.app_config.package_name).addHandler(logging.NullHandler())
 
 
 with open(PACKAGE_ROOT / "VERSION") as version_file:

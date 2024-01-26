@@ -31,7 +31,7 @@ def make_predictions(
         results = {
             "predictions": [np.exp(pred) for pred in predictions],
             "version": _version,
-            "errors": errors
+            "errors": errors,
         }
 
     return results
