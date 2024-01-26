@@ -42,10 +42,6 @@ jobs:
           path: ~/project
       - *prepare_tox
       - run:
-          name: Fetch the data
-          command: |
-            tox -e fetch_data
-      - run:
           name: Test the model
           command: |
             tox
