@@ -1,4 +1,4 @@
-from typing import Union, Dict, Any
+from typing import Union
 
 import numpy as np
 import pandas as pd
@@ -15,7 +15,7 @@ _rental_bikes_pipe = load_pipeline(file_name=pipeline_file_name)
 def make_predictions(
         *,
         input_data: Union[pd.DataFrame, dict],
-        ) -> Dict[str, Any]:
+        ) -> dict:
     """Make predictions using the saved model pipeline."""
 
     data = pd.DataFrame(input_data)
@@ -31,6 +31,5 @@ def make_predictions(
             "version": _version,
             "errors": errors,
         }
-    print(type(results["predictions"]))
 
     return results
